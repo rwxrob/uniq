@@ -1,4 +1,4 @@
-# No Hassle Unique Identifiers in Go, a Bonzai Branch
+# 🌳 Go Unique Identifiers
 
 [![GoDoc](https://godoc.org/github.com/rwxrob/uniq?status.svg)](https://godoc.org/github.com/rwxrob/uniq)
 [![License](https://img.shields.io/badge/license-Apache2-brightgreen.svg)](LICENSE)
