@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/rwxrob/bonzai/help"
 	Z "github.com/rwxrob/bonzai/z"
+	"github.com/rwxrob/help"
 	uniq "github.com/rwxrob/uniq/pkg"
 )
 
 var Cmd = &Z.Cmd{
 	Name:      `uniq`,
 	Summary:   `universal unique identifiers`,
-	Version:   `v0.0.1`,
+	Version:   `v0.1.5`,
 	Copyright: `Copyright 2021 Robert S Muhlestein`,
 	License:   `Apache-2.0`,
 	Commands:  []*Z.Cmd{help.Cmd, Isosec, Hex, Second, UUID, Base32},
