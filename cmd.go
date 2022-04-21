@@ -12,7 +12,7 @@ import (
 var Cmd = &Z.Cmd{
 	Name:      `uniq`,
 	Summary:   `universal unique identifiers`,
-	Version:   `v0.2.0`,
+	Version:   `v0.2.1`,
 	Copyright: `Copyright 2021 Robert S Muhlestein`,
 	License:   `Apache-2.0`,
 	Commands: []*Z.Cmd{help.Cmd,
