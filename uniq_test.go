@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	uniq "github.com/rwxrob/uniq/pkg"
+	"github.com/rwxrob/uniq"
 )
 
 func ExampleBytes() {
@@ -61,6 +61,16 @@ func ExampleSecond() {
 func ExampleIsosec() {
 
 	sec := uniq.Isosec()
+	log.Print(sec)
+	fmt.Println(len(sec))
+
+	// Output:
+	// 14
+}
+
+func ExampleIsonan() {
+
+	sec := uniq.Isonan()
 	log.Print(sec)
 	fmt.Println(len(sec))
 
