@@ -16,7 +16,7 @@ var Cmd = &Z.Cmd{
 	Copyright: `Copyright 2021 Robert S Muhlestein`,
 	License:   `Apache-2.0`,
 	Commands: []*Z.Cmd{help.Cmd,
-		IsosecCmd, IsonanCmd, HexCmd, SecondCmd, UUIDCmd, Base32Cmd,
+		IsosecCmd, IsosecTCmd, IsonanCmd, HexCmd, SecondCmd, UUIDCmd, Base32Cmd,
 	},
 }
 
@@ -35,6 +35,24 @@ var IsosecCmd = &Z.Cmd{
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
 		fmt.Println(Isosec())
+		return nil
+	},
+}
+
+var IsosecTCmd = &Z.Cmd{
+	Name:     `isosect`,
+	Summary:  `sortable unique second in GMT (with T)`,
+	Commands: []*Z.Cmd{help.Cmd},
+
+	Description: `
+		The {{cmd .Name}} command returns the GMT current time in ISO8601
+		(RFC3339) without any punctuation but includes the T. This is frequently
+		a very good unique suffix that has the added advantage of being
+		chronologically sortable and more readable than the epoch. (Also see
+		Second) `,
+
+	Call: func(_ *Z.Cmd, _ ...string) error {
+		fmt.Println(IsosecT())
 		return nil
 	},
 }

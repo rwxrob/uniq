@@ -22,6 +22,8 @@ integrating with shell scripts:
     uuid
     uid32
     isosec
+    isosect
+    isonan
     epoch [SECONDS]
     randhex [COUNT]
 */
@@ -104,6 +106,11 @@ func Second() string {
 // and more readable than the epoch. (Also see Second())
 func Isosec() string {
 	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("20060102150405"))
+}
+
+// IsosecT is same as Isosec with but with the preferred T.
+func IsosecT() string {
+	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("20060102T150405"))
 }
 
 // Isonan returns the GMT current time in ISO8601 (RFC3339) but for
