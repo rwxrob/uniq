@@ -16,7 +16,7 @@ var Cmd = &Z.Cmd{
 	Copyright: `Copyright 2021 Robert S Muhlestein`,
 	License:   `Apache-2.0`,
 	Commands: []*Z.Cmd{help.Cmd,
-		IsosecCmd, IsosecTCmd, IsonanCmd, HexCmd, SecondCmd, UUIDCmd, Base32Cmd,
+		IsosecCmd, IsosecTCmd, IsonanCmd, HexCmd, SecondCmd, UUIDCmd, Base32Cmd, IsodateCmd,
 	},
 }
 
