@@ -113,6 +113,13 @@ func IsosecT() string {
 	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("20060102T150405"))
 }
 
+// Isodate is a human-friendly date and time with Z for UTC. This
+// identifier does have a space in it, but is more compatible with
+// databases.
+func Isodate() string {
+	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("2006-01-02 15:04:05Z"))
+}
+
 // Isonan returns the GMT current time in ISO8601 (RFC3339) but for
 // nanoseconds without any punctuation or the T.  This is frequently
 // a very good unique suffix that has the added advantage of being

@@ -75,5 +75,15 @@ func ExampleIsonan() {
 	fmt.Println(len(sec))
 
 	// Output:
-	// 14
+	// 23
+}
+
+func ExampleIsodate() {
+
+	sec := uniq.Isodate()
+	log.Print(sec)
+	fmt.Println(len(sec))
+
+	// Output:
+	// 20
 }

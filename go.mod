@@ -16,12 +16,12 @@ require (
 	github.com/rwxrob/json v0.7.0 // indirect
 	github.com/rwxrob/scan v0.6.1 // indirect
 	github.com/rwxrob/structs v0.6.0 // indirect
-	github.com/rwxrob/term v0.2.6 // indirect
+	github.com/rwxrob/term v0.2.8 // indirect
 	github.com/rwxrob/to v0.5.2 // indirect
 	github.com/rwxrob/y2j v0.3.5 // indirect
-	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect
+	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d // indirect
 	golang.org/x/mod v0.5.1 // indirect
-	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
-	golang.org/x/term v0.0.0-20220411215600-e5f449aeb171 // indirect
+	golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e // indirect
+	golang.org/x/term v0.0.0-20220526004731-065cf7ba2467 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
 )

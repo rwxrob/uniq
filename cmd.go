@@ -1,11 +1,11 @@
 package uniq
 
 import (
-	"fmt"
 	"strconv"
 
 	Z "github.com/rwxrob/bonzai/z"
 	"github.com/rwxrob/help"
+	"github.com/rwxrob/term"
 )
 
 // Cmd is a composable Bonzai command branch
@@ -23,36 +23,36 @@ var Cmd = &Z.Cmd{
 // IsosecCmd is an composable Bonzai leaf command
 var IsosecCmd = &Z.Cmd{
 	Name:     `isosec`,
-	Summary:  `sortable unique second in GMT`,
+	Summary:  `sortable unique second in UTC`,
 	Commands: []*Z.Cmd{help.Cmd},
 
 	Description: `
-		The {{cmd .Name}} command returns the GMT current time in ISO8601
+		The {{cmd .Name}} command returns the UTC current time in ISO8601
 		(RFC3339) without any punctuation or the T. This is frequently
 		a very good unique suffix that has the added advantage of being
 		chronologically sortable and more readable than the epoch. (Also see
 		Second) `,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(Isosec())
+		term.Print(Isosec())
 		return nil
 	},
 }
 
 var IsosecTCmd = &Z.Cmd{
 	Name:     `isosect`,
-	Summary:  `sortable unique second in GMT (with T)`,
+	Summary:  `sortable unique second in UTC (with T)`,
 	Commands: []*Z.Cmd{help.Cmd},
 
 	Description: `
-		The {{cmd .Name}} command returns the GMT current time in ISO8601
+		The {{cmd .Name}} command returns the UTC current time in ISO8601
 		(RFC3339) without any punctuation but includes the T. This is frequently
 		a very good unique suffix that has the added advantage of being
 		chronologically sortable and more readable than the epoch. (Also see
 		Second) `,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(IsosecT())
+		term.Print(IsosecT())
 		return nil
 	},
 }
@@ -60,18 +60,37 @@ var IsosecTCmd = &Z.Cmd{
 // IsonanCmd is an composable Bonzai leaf command
 var IsonanCmd = &Z.Cmd{
 	Name:     `isonan`,
-	Summary:  `sortable unique nanosecond in GMT`,
+	Summary:  `sortable unique nanosecond in UTC`,
 	Commands: []*Z.Cmd{help.Cmd},
 
 	Description: `
-		The {{cmd .Name}} command returns the GMT current time in ISO8601
+		The {{cmd .Name}} command returns the UTC current time in ISO8601
 		(RFC3339) nanosecond without any punctuation or the T. This is frequently
 		a very good unique suffix that has the added advantage of being
 		chronologically sortable and more readable than the epoch. This
 		provides considerable more uniqueness compared to {{cmd "isosec"}}`,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(Isonan())
+		term.Print(Isonan())
+		return nil
+	},
+}
+
+// Isodate is an composable Bonzai leaf command
+var IsodateCmd = &Z.Cmd{
+	Name:     `isodate`,
+	Summary:  `prints human-friendly time to the second UTC`,
+	Commands: []*Z.Cmd{help.Cmd},
+
+	Description: `
+		The {{cmd .Name}} command returns the UTC current time in ISO8601
+		(RFC3339) in a human friendly format with the dashes and colons and the
+		Z at the end. This identifier does have a space but is easier to ingest
+		when dealing with databases that also use timestamps for uniqueness the
+		Z is always present preventing mistakes with different time zones.`,
+
+	Call: func(_ *Z.Cmd, _ ...string) error {
+		term.Print(Isodate())
 		return nil
 	},
 }
@@ -95,7 +114,7 @@ var HexCmd = &Z.Cmd{
 		if err != nil {
 			return err
 		}
-		fmt.Println(Hex(n))
+		term.Print(Hex(n))
 		return nil
 	},
 }
@@ -111,7 +130,7 @@ var SecondCmd = &Z.Cmd{
 		 that has the added advantage of being chronologically sortable.`,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(Second())
+		term.Print(Second())
 		return nil
 	},
 }
@@ -129,7 +148,7 @@ var UUIDCmd = &Z.Cmd{
 		data for any reason.`,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(UUID())
+		term.Print(UUID())
 		return nil
 	},
 }
@@ -150,7 +169,7 @@ var Base32Cmd = &Z.Cmd{
 		 empty string if unable to read random data.`,
 
 	Call: func(_ *Z.Cmd, _ ...string) error {
-		fmt.Println(Base32())
+		term.Print(Base32())
 		return nil
 	},
 }
