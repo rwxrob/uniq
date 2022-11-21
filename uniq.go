@@ -8,6 +8,8 @@ identifiers in UUID, Base32, and n*2 random hexadecimal characters.
     6c671957-2f39-4ce5-9f0e-e8d5ec53bfde (16 bytes, 36 chars, hex-)
     H6M0STKP0MTSU0493GERQDCSJ5BMF3VO     (20 bytes, 32 chars, base32)
     20060102150405                       (ISO8601 seconds without punch)
+    20060102T150405Z                     (ISO8601 with letters, not punch)
+		2006-01-02T15:04:05Z                 (ISO8601 readable)
     1561158139                           (8 bytes, 10+ chars, int64)
     5b ...                               (n bytes, n*2 chars, hex)
 
@@ -23,6 +25,7 @@ integrating with shell scripts:
     uid32
     isosec
     isosect
+    isodate
     isonan
     epoch [SECONDS]
     randhex [COUNT]
@@ -113,11 +116,11 @@ func IsosecT() string {
 	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("20060102T150405"))
 }
 
-// Isodate is a human-friendly date and time with Z for UTC. This
-// identifier does have a space in it, but is more compatible with
-// databases.
+// Isodate is a human-friendly date and time with Z for UTC and T to
+// avoid space (per ISO8601). This identifier does have a space in it,
+// but is more compatible with databases.
 func Isodate() string {
-	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("2006-01-02 15:04:05Z"))
+	return fmt.Sprintf("%v", time.Now().In(time.UTC).Format("2006-01-02T15:04:05Z"))
 }
 
 // Isonan returns the GMT current time in ISO8601 (RFC3339) but for
